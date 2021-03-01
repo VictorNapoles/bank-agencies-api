@@ -1,8 +1,8 @@
 package com.bank.agencies.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class AgencyResponse implements Serializable {
 
@@ -11,6 +11,8 @@ public class AgencyResponse implements Serializable {
     private String name;
     private String bank;
     private String city;
+    
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String state;
 
     public String getName() {
@@ -44,8 +46,7 @@ public class AgencyResponse implements Serializable {
     public void setState(String state) {
         this.state = state;
     }
-
-
+    
     public static final class AgencyResponseBuilder {
         private String name;
         private String bank;
